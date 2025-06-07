@@ -23,7 +23,7 @@ services:
     image: roman299/kittygram_frontend
     command: cp -r /app/build/. /static/
     volumes:
-      - static:/frontend_static
+      - static:/static
   gateway:
     image: roman299/kittygram_gateway
     env_file: .env
@@ -31,4 +31,4 @@ services:
       - 9000:80
     volumes:
       - static:/staticfiles
-      - media:/app/media
+      - media:/media
