@@ -1,2 +1,4 @@
-suhrobtaski.zapto.org
-primkittygram.duckdns.org
+repo_owner: primusroman
+kittygram_domain: https://primkittygram.duckdns.org
+taski_domain: https://suhrobtaski.zapto.org
+dockerhub_username: roman299
