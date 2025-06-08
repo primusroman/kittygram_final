@@ -1,9 +1,9 @@
 # flake8: noqa
-from dotenv import load_dotenv
 import os
 from pathlib import Path
 
-#load_dotenv()
+from dotenv import load_dotenv
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -14,7 +14,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['89.169.164.61', '127.0.0.1', 'localhost', 'primkittygram.duckdns.org']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+# ALLOWED_HOSTS = ['89.169.164.61', '127.0.0.1', 'localhost', 'primkittygram.duckdns.org']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
