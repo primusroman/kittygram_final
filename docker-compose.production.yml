@@ -18,6 +18,10 @@ services:
     volumes:
       - static:/backend_static
       - media:/app/media
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: on-failure
   frontend:
     env_file: .env
     image: roman299/kittygram_frontend
@@ -32,3 +36,9 @@ services:
     volumes:
       - static:/staticfiles
       - media:/media
+    depends_on:
+      backend:
+        condition: service_started
+      frontend:
+        condition: service_started
+    restart: on-failure

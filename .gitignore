@@ -150,3 +150,6 @@ media/
 
 # Others
 node_modules
+
+# Игнорировать основной docker-compose (локальная разработка)
+docker-compose.yml
