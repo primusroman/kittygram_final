@@ -1,4 +1,3 @@
-#docker-compose.production.yml
 version: '3'
 
 volumes:
@@ -35,7 +34,7 @@ services:
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
-      
+
   gateway:
     image: roman299/kittygram_gateway
     env_file: .env
