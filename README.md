@@ -1,3 +1,5 @@
+[![CI](https://github.com/primusroman/kittygram_final/actions/workflows/main.yml/badge.svg)](https://github.com/primusroman/kittygram_final/actions/workflows/main.yml)
+
 # Kittygram - социальная сеть для любителей котиков
 
 ## Описание приложения
