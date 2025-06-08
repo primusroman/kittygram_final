@@ -1,4 +1,4 @@
-#docker-compose.yml
+#docker-compose.production.yml
 version: '3'
 
 volumes:
@@ -12,6 +12,12 @@ services:
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   backend:
     image: roman299/kittygram_backend
     env_file: .env
@@ -22,12 +28,14 @@ services:
       db:
         condition: service_healthy
     restart: on-failure
+
   frontend:
     env_file: .env
     image: roman299/kittygram_frontend
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
+      
   gateway:
     image: roman299/kittygram_gateway
     env_file: .env
